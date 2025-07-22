@@ -1,19 +1,24 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -g -Wall
-SRC = src/main.cpp
+CXXFLAGS = -std=c++17 -Wall -Wextra
+SRC_DIR = src
 BUILD_DIR = build
-TARGET = $(BUILD_DIR)/main
 
-all: $(TARGET)
+SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SOURCES))
 
-$(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+EXECUTABLE = $(BUILD_DIR)/main
 
-$(TARGET): $(SRC) | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
+all: $(EXECUTABLE)
 
-run: $(TARGET)
-	./$(TARGET)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+run: $(EXECUTABLE)
+	./$(EXECUTABLE)

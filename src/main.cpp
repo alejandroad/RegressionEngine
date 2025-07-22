@@ -1,8 +1,9 @@
 #include <iostream>
+#include "functions.hpp"
 
 int main () {
 
-    std::cout << "Hello World" << std::endl;
+    say_hello();
 
     return 0;
 }
