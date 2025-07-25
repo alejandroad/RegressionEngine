@@ -7,3 +7,7 @@ largely by following the 'spec' which is mainly wikipedia. You can learn more ab
 For more inquiries, please feel free to reach out at alejandroariasdiaz09@gmail.com
 
 TODO: Add build instructions
+
+For Windows: MinGW32-make 
+
+For all mac related commands you can ommit 'MinGW32'
