@@ -1,9 +1,12 @@
 #include <iostream>
 #include "functions.hpp"
+#include <vector>
 
 int main () {
 
-    say_hello();
+    std::vector<int> ints = {1, 2, 3, 4};
+
+    print_data(ints);
 
     return 0;
 }

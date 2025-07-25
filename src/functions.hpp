@@ -1,8 +1,9 @@
-// src/functions.hpp
-
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
 
-void say_hello();
+#include <iostream>
+
+template<typename T>
+void print_data(std::vector<T>& data); 
 
 #endif
