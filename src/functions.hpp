@@ -2,8 +2,8 @@
 #define FUNCTIONS_HPP
 
 #include <iostream>
+#include <vector>
 
-template<typename T>
-void print_data(std::vector<T>& data); 
+void print_data(std::vector<double>& data); 
 
 #endif
