@@ -28,34 +28,33 @@ void load_data_points(const std::string& filename) {
         std::stringstream ss(line);
         std::string date, max_temp_str, min_temp_str, skip_col, wind_speed_str;
 
-        std::cout << line << std::endl;
+        std::getline(ss, date, ',');
+        std::getline(ss, max_temp_str, ',');
+        std::getline(ss, min_temp_str, ',');
+        std::getline(ss, skip_col, ',');
+        std::getline(ss, skip_col, ',');
+        std::getline(ss, wind_speed_str);
 
-        // std::getline(ss, date, ',');
-        // std::getline(ss, max_temp_str, ',');
-        // std::getline(ss, min_temp_str, ',');
-        // std::getline(ss, skip_col, ',');
-        // std::getline(ss, wind_speed_str, ',');
+        if (max_temp_str.empty() || min_temp_str.empty()) {
+            std::cerr << "[WARN] Skipping line " << line_number << " due to empty temperature values.\n";
+            continue;
+        }
 
-        // if (max_temp_str.empty() || min_temp_str.empty()) {
-        //     std::cerr << "[WARN] Skipping line " << line_number << " due to empty temperature values.\n";
-        //     continue;
-        // }
+        try {
+            DataPoint dp;
+            dp.date = strdup(date.c_str()); 
+            dp.max_temp_y = std::stod(max_temp_str);
+            dp.min_temp_x = std::stod(min_temp_str);
+            dp.wind_speed = (wind_speed_str == "T" || wind_speed_str.empty()) ? 0.0 : std::stod(wind_speed_str);
 
-        // try {
-        //     DataPoint dp;
-        //     dp.date = strdup(date.c_str()); // Allocate memory for char*
-        //     dp.max_temp_y = std::stod(max_temp_str);
-        //     dp.min_temp_x = std::stod(min_temp_str);
-        //     dp.wind_speed = (wind_speed_str == "T" || wind_speed_str.empty()) ? 0.0 : std::stod(wind_speed_str);
-
-        //     dataset.push_back(dp);
-        // } catch (const std::invalid_argument& e) {
-        //     std::cerr << "[ERROR] Invalid data at line " << line_number << ": " << line << std::endl;
-        //     continue;
-        // } catch (const std::out_of_range& e) {
-        //     std::cerr << "[ERROR] Out-of-range value at line " << line_number << ": " << line << std::endl;
-        //     continue;
-        // }
+            dataset.push_back(dp);
+        } catch (const std::invalid_argument& e) {
+            std::cerr << "[ERROR] Invalid data at line " << line_number << ": " << line << std::endl;
+            continue;
+        } catch (const std::out_of_range& e) {
+            std::cerr << "[ERROR] Out-of-range value at line " << line_number << ": " << line << std::endl;
+            continue;
+        }
     }
 
     std::cout << "[INFO] Loaded " << dataset.size() << " data points from " << filename << std::endl;
