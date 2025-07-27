@@ -1,14 +1,13 @@
-#include <iostream>
-#include <vector>
-#include "functions.hpp"
+#include "regression_utils.hpp"
+
+std::vector<DataPoint> dataset;
 
 int main () {
+    std::string filename = "data/normalized_data.csv";
 
-    std::vector<int> ints = {1, 2, 3, 4};
+    load_data_points(filename);
 
-    std::vector<double> doubles(ints.begin(), ints.end());
-
-    print_data(doubles);
+    //print_data(dataset);
 
     return 0;
 }
