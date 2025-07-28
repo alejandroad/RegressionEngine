@@ -13,7 +13,7 @@ class RegressionEngine {
     bool trained;
 
     public:
-        RegressionEngine(const std::vector<DataPoint>& dataset);
+        RegressionEngine(std::vector<DataPoint>& dataset);
         void train();
         float predict(float x) const;
         void compute_mse() const;
