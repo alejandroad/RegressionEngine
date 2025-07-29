@@ -43,7 +43,7 @@ void load_data_points(const std::string& filename) {
         try {
             DataPoint dp;
             std::vector<double> features;
-            dp.date = strdup(date.c_str()); 
+            dp.date = date; 
             dp.target = std::stod(max_temp_str);
 
             features.push_back(std::stod(min_temp_str));
