@@ -6,20 +6,24 @@
 class RegressionEngine {
 
     std::vector<DataPoint>& dataset;
-
+    std::vector<float> weights;
+    float bias_term;
+    
     float mse;
-    float slope;
-    float intercept;
+    float r_squared;
     bool trained;
 
     public:
         RegressionEngine(std::vector<DataPoint>& dataset);
         void train();
-        float predict(float x) const;
+        float predict(const std::vector<float>& features) const;
+        std::vector<float> batch_predict() const;
         void compute_mse() const;
         float compute_r_squared() const;
         void change_dataset(const std::vector<DataPoint>& dataset);
-        void print_model();
+        void print_model() const;
+        void normalize_features();
+        void denormalize_features();
         void save_model(const std::string& path);
         void load_model(...);
 };
