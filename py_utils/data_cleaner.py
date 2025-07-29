@@ -3,7 +3,7 @@ import csv
 input_file = '../data/full_weather_data.csv'
 output_file = '../data/normalized_data.csv'
 
-fields_to_keep = ["Date", "MaxTemp", "MinTemp", "WindGustSpd", "Precip"]
+fields_to_keep = ["Date", "MaxTemp", "MinTemp", "MeanTemp", "Precip"]
 
 with open(input_file, newline='') as csvfile:
     reader = csv.DictReader(csvfile)
