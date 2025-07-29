@@ -8,10 +8,9 @@
 #include <sstream>
 
 struct DataPoint {
-    double min_temp_x;
-    double max_temp_y;
+    std::vector<double> features;
+    double target;
     std::string date;
-    double wind_speed;
 };
 
 extern std::vector<DataPoint> dataset;
