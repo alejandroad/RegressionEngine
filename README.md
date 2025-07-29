@@ -1,11 +1,27 @@
-Author : Alejandro Arias Diaz
+# 📈 Regression Engine in C++
 
-The purpose of this repository is to serve as a method of education in the field of statistics. This will be an engine
-built primarily in c++. The model will handle linear regression, simple regression, polynomial regression, and more. To be built over time,
-largely by following the 'spec' which is mainly wikipedia. You can learn more about regression analysisv [here](https://en.wikipedia.org/wiki/Regression_analysis)
+Author: **Alejandro Arias Diaz**  
+Contact: [alejandroariasdiaz09@gmail.com](mailto:alejandroariasdiaz09@gmail.com)
 
-For more inquiries, please feel free to reach out at alejandroariasdiaz09@gmail.com
+---
 
-For Windows: MinGW32-make 
+## 🔍 About
 
-For all mac related commands you can ommit 'MinGW32'
+This repository is an implementation of statistical regression models in **C++**, built from scratch as a learning and teaching tool.
+
+The goal is to support:
+
+- Simple Linear Regression
+- Polynomial Regression
+- Multivariate Regression
+- Model Persistance (save/load)
+- R² Score, MSE, and other metrics
+
+> This project is built using open specifications, largely derived from [Wikipedia’s Regression Analysis](https://en.wikipedia.org/wiki/Regression_analysis).
+
+---
+
+### Prerequisites
+
+- A C++17-compatible compiler (`g++`, `clang++`, etc.)
+- `make` (or `MinGW32-make` on Windows)
