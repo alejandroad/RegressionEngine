@@ -7,7 +7,5 @@ int main () {
 
     load_data_points(filename);
 
-    print_data(dataset);
-
     return 0;
 }
