@@ -3,13 +3,14 @@
 
 RegressionEngine::RegressionEngine(std::vector<DataPoint> &datasetReference)
     : dataset(datasetReference),
+      weights(),
+      bias_term(0.0f),
       mse(0.0f),
       r_squared(0.0f),
-      bias_term(0.0f),
-      trained(false) 
+      trained(false)
 {
     if (!dataset.empty()) {
         size_t num_features = dataset[0].features.size();
-        weights = std::vector<float>(num_features, 0.0f);  
+        weights = std::vector<float>(num_features, 0.0f);
     }
 }
