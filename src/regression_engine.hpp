@@ -18,7 +18,7 @@ class RegressionEngine {
         void train();
         float predict(const std::vector<float>& features) const;
         std::vector<float> batch_predict() const;
-        void compute_mse() const;
+        void compute_mse();
         float compute_r_squared() const;
         void change_dataset(const std::vector<DataPoint>& dataset);
         void print_model() const;
